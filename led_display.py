@@ -18,8 +18,8 @@ class LEDdisplay():
     self.Shifter.shiftByte(1 << (row-1)) 
     
 class LED8x8():
-  def __init__(self):
-    self.self = self
+  def __init__(self, data, latch, clock):
+    self.Shifter = Shifter(data, latch, clock)
   def display(self,row):
     self.Shifter.shiftByte(LEDdisplay.numbers[row]) # load the row values
     self.Shifter.shiftByte(1 << (row-1)) 
