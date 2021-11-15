@@ -20,10 +20,6 @@ class LEDdisplay():
 class LED8x8():
   def __init__(self):
     self.self = self
-  def display(self):
-    global num
-    for x in range(7):
-      for i in range(2):
-        row = x # change this value to pick which row the pattern appears on
-        self.Shifter.shiftByte(LEDdisplay.numbers[num]) # load the row values
-        self.Shifter.shiftByte(1 << (row-1)) 
+  def display(self,row):
+    self.Shifter.shiftByte(LEDdisplay.numbers[row]) # load the row values
+    self.Shifter.shiftByte(1 << (row-1)) 
