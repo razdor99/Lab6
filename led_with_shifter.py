@@ -16,5 +16,5 @@ theLEDdisplay= LEDdisplay(dataPin, latchPin, clockPin)
 
 while True:
   for n in range(len(sequence)):
-    LED8x8.setNumber(sequence[n])
+    LED8x8.display(sequence[n])
     time.sleep(0.4)
