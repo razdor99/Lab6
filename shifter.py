@@ -2,7 +2,7 @@
 
 import RPi.GPIO as GPIO
 import time
-
+from led_display import LEDdisplay
 class Shifter():
 
   'Shift register class'
@@ -25,3 +25,14 @@ class Shifter():
       GPIO.output(self.dataPin, byteVal & (1<<i))    # if common cathode
       self.ping(self.clockPin)
     self.ping(self.latchPin)
+
+class LED8x8():
+  def __init__(self):
+    self.self = self
+  def display(self):
+    global num
+    for x in range(7):
+      for i in range(2):
+        row = x # change this value to pick which row the pattern appears on
+        self.shifter.shiftByte(LEDdisplay.numbers[num]) # load the row values
+        self.shifter.shiftByte(1 << (row-1)) 
