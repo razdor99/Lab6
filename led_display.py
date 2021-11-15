@@ -24,4 +24,4 @@ class LED8x8():
     self.Shifter = Shifter(data, latch, clock)
   def display(self,row):
     self.Shifter.shiftByte(LED8x8.numbers[row]) # load the row values
-    self.Shifter.shiftByte(1 << (row-1)) 
+    self.Shifter.shiftByte(1 << (row)) 
