@@ -10,12 +10,12 @@ class LEDdisplay():
   numbers = [0b00111100, 0b01000010, 0b10100101, 0b10000001, 0b10100101, 0b10011001, 0b01000010, 0b00111100]
 
   def __init__(self, data, latch, clock):
-    self.shifter = Shifter(data, latch, clock)
+    self.Shifter = Shifter(data, latch, clock)
  
   def setNumber(self, num):  # display a given number
     row = 4 # change this value to pick which row the pattern appears on
-    self.shifter.shiftByte(LEDdisplay.numbers[num]) # load the row values
-    self.shifter.shiftByte(1 << (row-1)) 
+    self.Shifter.shiftByte(LEDdisplay.numbers[num]) # load the row values
+    self.Shifter.shiftByte(1 << (row-1)) 
     
 class LED8x8():
   def __init__(self):
@@ -25,5 +25,5 @@ class LED8x8():
     for x in range(7):
       for i in range(2):
         row = x # change this value to pick which row the pattern appears on
-        self.shifter.shiftByte(LEDdisplay.numbers[num]) # load the row values
-        self.shifter.shiftByte(1 << (row-1)) 
+        self.Shifter.shiftByte(LEDdisplay.numbers[num]) # load the row values
+        self.Shifter.shiftByte(1 << (row-1)) 
