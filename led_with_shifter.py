@@ -10,11 +10,12 @@ from led_display import LEDdisplay, LED8x8
 dataPin, latchPin, clockPin = 23, 24, 25
 
 # Pick a number sequence
-sequence = [8, 6, 7, 5, 3, 0, 9]
+sequence = [0b00111100, 0b01000010, 0b10100101, 0b10000001, 0b10100101, 0b10011001, 0b01000010, 0b00111100]
 
 theLEDdisplay= LEDdisplay(dataPin, latchPin, clockPin)
 
 while True:
   for n in range(len(sequence)):
     LED8x8.display(sequence[n])
-    time.sleep(0.4)
+    time.sleep(0.001)
+  
