@@ -2,7 +2,7 @@
 
 import RPi.GPIO as GPIO
 import time
-from led_display import LEDdisplay
+
 class Shifter():
 
   'Shift register class'
