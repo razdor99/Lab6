@@ -27,9 +27,9 @@ class LED8x8():
     self.Shifter = Shifter(data, latch, clock)
     row = 5
     i = 5
-    
+    x=3
     while True:
-      x = random.randint(1,5)
+      #x = random.randint(1,5)
       if x == 1:
         #walk up
         row +=1
