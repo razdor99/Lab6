@@ -69,7 +69,7 @@ class LED8x8():
         pass
         
     myArray[i]=column
-    p1 = multiprocessing.Process(target=LED8x8.display, args=(myArray,row))
+    p1 = multiprocessing.Process(target=self.display, args=(myArray,row))
     p1.daemon = True
     p1.start()
     time.sleep(0.1)
