@@ -25,11 +25,11 @@ class LED8x8():
     #myArray[0], myArray[1],myArray[2],myArray[3],myArray[4],myArray[5],myArray[6],myArray[7],= 0b10000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000
     column = 0b00000001
     self.Shifter = Shifter(data, latch, clock)
-    row = 5
-    i = 5
-    x=3
+    row = 1
+    i = 1
+    
     while True:
-      #x = random.randint(1,5)
+      x = random.randint(1,5)
       if x == 1:
         #walk up
         row +=1
@@ -54,7 +54,7 @@ class LED8x8():
         #stay still
         pass
         
-    myArray[i]=f
+    myArray[i] = f
     p1 = multiprocessing.Process(target=self.display, args=(myArray,row))
     p1.daemon = True
     p1.start()
@@ -64,4 +64,4 @@ class LED8x8():
   def display(self,row):
     self.Shifter.shiftByte(LED8x8.pattern[row]) # load the row values
     self.Shifter.shiftByte(1 << (row))
-    self.Shifter.latch()
+  
