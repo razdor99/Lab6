@@ -19,10 +19,12 @@ class LEDdisplay():
     self.Shifter.shiftByte(1 << (row-1)) 
     
 class LED8x8():
-  pattern = [0b10000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000]
+  
   def __init__(self, data, latch, clock):
+    myArray = multiprocessing.Array('i',8)
+    myArray[0], myArray[1],myArray[2],myArray[3],myArray[4],myArray[5],myArray[6],myArray[7],= 0b10000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000
     self.Shifter = Shifter(data, latch, clock)
-    myArray = multiprocessing.Array('i',8) #is it 5 bc of positions or 8 bc of bits
+     #is it 5 bc of positions or 8 bc of bits
     row = 0 
     i = 0
     
@@ -44,22 +46,22 @@ class LED8x8():
         
       if x == 3:
         #walk left
-        myArray[i] = 0
+       
         if i == 0:
           pass
         else:
           i -=1
-        myArray[i] = 1
+        myArray[i] << 1
        
        
       if x == 4:
         #walk right
-        myArray[i] = 0
+       
         if i == 7:
           pass
         else:
           i+=1
-        myArray[i] = 1
+        myArray[i] >> 1
         
 
       if x == 5:
