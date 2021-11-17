@@ -31,12 +31,11 @@ class LED8x8():
       x = random.randint(1,5)
       if x == 1:
         #walk up
-          if row == 7:
-            pass
-          else:
-            row +=1
+        if row == 7:
+          pass
+        else:
+          row +=1
         time.sleep(0.1)
-  
       if x == 2:
         #walk down
         if row == 0:
