@@ -20,7 +20,6 @@ class LEDdisplay():
     
 class LED8x8():
   pattern = [0b10000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000]
-
   def __init__(self, data, latch, clock):
     self.Shifter = Shifter(data, latch, clock)
     myArray = multiprocessing.Array('i',8) #is it 5 bc of positions or 8 bc of bits
