@@ -31,10 +31,10 @@ class LED8x8():
       x = random.randint(1,5)
       if x == 1:
         #walk up
-        if row == 7:
-          pass
-        else:
-          row +=1
+          if row == 7:
+            pass
+          else:
+            row +=1
         time.sleep(0.1)
   
       if x == 2:
@@ -44,7 +44,6 @@ class LED8x8():
         else:
           row -=1
         time.sleep(0.1)
-
       if x == 3:
         #walk left
         myArray[i] = 0
@@ -70,9 +69,9 @@ class LED8x8():
         pass
         time.sleep(0.1)
 
-      p1 = multiprocessing.Process(target=LED8x8.display, args=(myArray,row))
-      p1.daemon = True
-      p1.start()
+    p1 = multiprocessing.Process(target=LED8x8.display, args=(myArray,row))
+    p1.daemon = True
+    p1.start()
     
        
   def display(self,row):
