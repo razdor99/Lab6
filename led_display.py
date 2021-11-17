@@ -25,8 +25,8 @@ class LED8x8():
     #myArray[0], myArray[1],myArray[2],myArray[3],myArray[4],myArray[5],myArray[6],myArray[7],= 0b10000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000
     column = 0b00000001
     self.Shifter = Shifter(data, latch, clock)
-    row = 0 
-    i = 0
+    row = 5
+    i = 5
     
     while True:
       x = random.randint(1,5)
