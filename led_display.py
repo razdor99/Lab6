@@ -78,3 +78,4 @@ class LED8x8():
   def display(self,row):
     self.Shifter.shiftByte(LED8x8.pattern[row]) # load the row values
     self.Shifter.shiftByte(1 << (row))
+    self.Shifter.latch()
