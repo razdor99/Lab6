@@ -72,7 +72,8 @@ class LED8x8():
       time.sleep(0.1)
     
        
-  def display(self,row):
-    self.Shifter.shiftByte(LED8x8.pattern[row]) # load the row values
+  def display(self,row,a):
+
+    self.Shifter.shiftByte(a[row]) # load the row values
     self.Shifter.shiftByte(1 << (row))
   
