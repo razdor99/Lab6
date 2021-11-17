@@ -42,7 +42,7 @@ class LED8x8():
       if x == 3:
         #walk left
         i -=1
-        f = column << i
+        f = column << 1
        
       if x == 4:
         #walk right
