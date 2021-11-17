@@ -52,7 +52,7 @@ class LED8x8():
           pass
         else:
           i -=1
-        column << i
+        f = column << i
        
       if x == 4:
         #walk right
@@ -61,14 +61,14 @@ class LED8x8():
           pass
         else:
           i+=1
-        column >> 1
+        f = column >> 1
         
 
       if x == 5:
         #stay still
         pass
         
-    myArray[i]=column
+    myArray[i]=f
     p1 = multiprocessing.Process(target=self.display, args=(myArray,row))
     p1.daemon = True
     p1.start()
