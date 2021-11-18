@@ -68,7 +68,7 @@ class LED8x8():
       self.p1 = multiprocessing.Process(target=self.display, args=(myArray,row))
       self.p1.daemon = True
       self.p1.start()
-      print(row,i)
+      print(myArray[:])
       time.sleep(0.1)
     
        
