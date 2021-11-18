@@ -8,8 +8,6 @@ class LEDdisplay():
 
   'Class for controlling a 7-segment LED display'
 
-  #numbers = [0b00111100, 0b01000010, 0b10100101, 0b10000001, 0b10100101, 0b10011001, 0b01000010, 0b00111100]
-
   def __init__(self, data, latch, clock):
     self.Shifter = Shifter(data, latch, clock)
  
@@ -23,6 +21,7 @@ class LED8x8():
   def __init__(self, data, latch, clock):
     myArray = multiprocessing.Array('i',8)
     #myArray[0], myArray[1],myArray[2],myArray[3],myArray[4],myArray[5],myArray[6],myArray[7],= 0b10000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000
+    mask = 0b11111111
     column = 0b00000001
     self.Shifter = Shifter(data, latch, clock)
     row = 5
@@ -65,7 +64,7 @@ class LED8x8():
         #stay still
         pass
         
-      myArray[i] = column
+      myArray[i] =  mask & ~column
       self.p1 = multiprocessing.Process(target=self.display, args=(myArray,row))
       self.p1.daemon = True
       self.p1.start()
