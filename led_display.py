@@ -75,4 +75,4 @@ class LED8x8():
 
     self.Shifter.shiftByte(a[row]) # load the row values
     self.Shifter.shiftByte(1 << (row))
-  
+    self.Shifter.latch()
