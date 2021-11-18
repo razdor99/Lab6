@@ -30,7 +30,7 @@ class LED8x8():
     while True:
       x = random.randint(1,5)
       if x == 1:
-        if row == 0:
+        if row == 7:
           pass
         else:
           row +=1
