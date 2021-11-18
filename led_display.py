@@ -64,7 +64,7 @@ class LED8x8():
         #stay still
         pass
         
-      myArray[i] =  mask & ~column
+      myArray[i] =  ~mask & column
       self.p1 = multiprocessing.Process(target=self.display, args=(myArray,row))
       self.p1.daemon = True
       self.p1.start()
@@ -74,5 +74,5 @@ class LED8x8():
   def display(self,a,row):
 
     self.Shifter.shiftByte(a[row]) # load the row values
-    self.Shifter.shiftByte(1 << a[row])
+    self.Shifter.shiftByte(1 << a[row-1])
     self.Shifter.latch()
