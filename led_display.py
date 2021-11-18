@@ -40,7 +40,7 @@ class LED8x8():
         if row == 0:
           pass
         else:
-          #walk dowm
+          #walk down
           row -=1
         
       if x == 3:
@@ -64,7 +64,7 @@ class LED8x8():
         #stay still
         pass
         
-      myArray[i] =  mask & ~column
+      myArray[i] =  ~mask & column
       self.p1 = multiprocessing.Process(target=self.display, args=(myArray,row))
       self.p1.daemon = True
       self.p1.start()
