@@ -44,7 +44,7 @@ class LED8x8():
           row -=1
         
       if x == 3:
-        if i ==7:
+        if i ==0:
           pass
           #walk left
         else:
@@ -53,7 +53,7 @@ class LED8x8():
        
       if x == 4:
         #walk right
-        if i ==0:
+        if i ==7:
           pass
         else:
           i+=1
