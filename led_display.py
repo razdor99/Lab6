@@ -21,7 +21,7 @@ class LED8x8():
   def __init__(self, data, latch, clock):
     myArray = multiprocessing.Array('i',8)
     #myArray[0], myArray[1],myArray[2],myArray[3],myArray[4],myArray[5],myArray[6],myArray[7],= 0b10000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000
-    mask = 0b00000000
+    mask = 0b11111111
     column = 0b00000001
     self.Shifter = Shifter(data, latch, clock)
     row = 5
@@ -64,7 +64,7 @@ class LED8x8():
         #stay still
         pass
         
-      myArray[i] =  ~column & mask
+      myArray[i] = column & mask
       self.p1 = multiprocessing.Process(target=self.display, args=(myArray,row))
       self.p1.daemon = True
       self.p1.start()
